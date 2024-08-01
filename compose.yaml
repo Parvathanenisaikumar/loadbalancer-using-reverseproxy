@@ -1,0 +1,19 @@
+---
+version: "3"
+services:
+  app1:
+    build: App1/
+    ports:
+      - "7777:80"
+  app2:
+    build: App2/
+    ports:
+      - "8888:80"
+  nginx:
+    build: nginx/
+    ports:
+      - "9999:80"
+    depends_on:
+      - app1
+      - app2
+...
